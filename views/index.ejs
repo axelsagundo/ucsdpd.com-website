@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title><%= title %></title>
+    
+  </head>
+  <body>
+
+
+    <header class="site-header wrapper">
+      <div class="header_nav">
+        <h1><a href="/" role="logo"><%= title %></a></h1>
+        <nav>    
+          <ul role="list">
+            <li><a href="/about">About</a></li>
+            <li><a href="/archive">Archive</a></li>
+            <li><a href="/leaderboard">Leaderboard</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <hr>
+
+    <!-- <div>
+      <h1><img src="images/noun-date.svg" alt="omg" width="25">hiiiiii</h1>
+    </div> -->
+
+    <main id="main-content">
+      <div class="crime_collection my-s-m wrapper">
+        <div class="sidebar">
+          <!-- <div class="crime_params__docked">
+            <ul role="list">
+              <li>Month: June</li>
+              <li>Year: 2024</li>
+            </ul>
+          </div> -->
+
+          <div>
+            <% items.forEach(dateGroup => { %>
+              <h2 class="crime_day_header"><%= dateGroup.date %></h2>
+              <ul class="grid" role="list">
+                <% dateGroup.cases.forEach(item => { %>
+                  <li>
+                    <div class="incident">
+                      <%= item.incident_type %>
+                    </div>
+                    <div class="location">
+                      <%= item.location %>
+                    </div>
+                    <div class="date">
+                      <%= item.formattedDate %>
+                    </div>
+                    <div class="time">
+                      <%= item.time %>
+                    </div>
+                    <div class="summary">
+                      <div>Summary:</div> <%= item.summary %> <br>
+                    </div>
+                    <div class="disposition">
+                      <div>Disposition:</div> <%= item.disposition %>
+                    </div>
+                  </li>
+                <% }); %>
+              </ul>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </main>
+    
+  </body>
+</html>
+

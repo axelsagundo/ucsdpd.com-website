@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>UCSD Featured Crime Logs</title>
+    
+  </head>
+  <body>
+
+    <header class="site-header wrapper">
+      <div class="header_nav">
+        <h1><a href="/"role="logo">UCSD Featured Crime Logs</a></h1>
+        <nav>    
+          <ul role="list">
+            <li><a href="/about" >About</a></li>
+            <li><a href="/archive">Archive</a></li>
+            <li><a href="/leaderboard">Leaderboard</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <hr>
+
+    <main class="wrapper about_main">
+        <section class="general_section">
+            <header class="general_header">About</header>
+            <p style="max-width: 750px;"> The UC San Diego Police Department publishes daily Crime Logs to their <a  href="https://www.police.ucsd.edu/docs/reports/CallsandArrests/Calls_and_Arrests.asp" target="_blank"> website</a>. This website displays a filtered subset of those Crime Logs.</p>
+            <br>
+            <p style="max-width: 750px;">Everyday at 8 AM, 12 PM, and 5 PM PST, the server will check for any new updates posted to the official UCSD crime log website and update this site accordingly.</p>
+            <br>
+        </section>
+        
+
+        <section class="general_section">
+            <header class="general_header">Anatomy of a Crime Log</header>
+
+            <div style="display: flex; gap: 25px; flex-wrap: wrap;">
+                
+                <div class="crime_log" style="width: 250px;">    
+                    <div class="incident"> &lt; Incident Type &gt;</div>
+                    <div class="location"> &lt; Location &gt;</div>
+                    <div class="date"> &lt; Date  &gt;</div>
+                    <div class="time"> &lt; Time &gt;</div>
+                    <div class="summary">
+                        <div>Summary:</div> &lt; Crime Log Summary  &gt;<br>
+                    </div>
+                    <div class="disposition">
+                        <div>Disposition:</div> 
+                        &lt; What police did about it  &gt;
+                    </div>
+                </div>
+
+                <div class="crime_log">    
+                    <div class="incident">Animal Call</div>
+                    <div class="location">Hopkins Parking Structure</div>
+                    <div class="date">9/20/2022</div>
+                    <div class="time"> 1:07 PM</div>
+                    <div class="summary">
+                        <div>Summary:</div> Report of a squirrel acting aggressive <br>
+                    </div>
+                    <div class="disposition">
+                        <div>Disposition:</div> Checks OK
+                    </div>
+                </div>
+
+            </div>
+   
+        </section>
+
+        <section class="general_section">
+            <header class="general_header">How It Works</header>
+
+            <p style="max-width: 750px;"> 
+                Machine learning. I used Scikit-learn to do the heavy lifting.
+            </p>
+        
+            <br>
+
+            <p style="max-width: 750px;"> In a nutshell I: </p>
+
+                <ul style="padding-left: 25px;">
+                    <li>
+                        Manually labeled 2,341 individual crime logs as either "Interesting" or "Not Interesting" &#40;true or false&#41;.
+                    </li>
+                    <li>
+                        Tokenized each crime log summary by stemming and removing stop words using the Python NLTK library.
+                    </li>
+                    <li>
+                        Utilized Scikit-Learn's TF-IDF <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html">vectorizer</a> to extract features from the tokenized crime log summaries.
+                    </li>
+                    <li>
+                        Trained a Linear Support Vector <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html">Classifier</a> to classify crime logs as “interesting” or “not interesting”.
+                    </li>
+                </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <br>
+        <br>
+        <br>
+    </footer>
+
+  </body>
+</html>

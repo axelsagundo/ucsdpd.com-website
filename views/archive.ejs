@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>UCSD Featured Crime Logs</title>
+    
+  </head>
+  <body>
+
+    <header class="site-header wrapper">
+        <div class="header_nav">
+          <h1><a href="/"role="logo">UCSD Featured Crime Logs</a></h1>
+          <nav>    
+            <ul role="list">
+              <li><a href="/about" >About</a></li>
+              <li><a href="/archive">Archive</a></li>
+              <li><a href="/leaderboard">Leaderboard</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+    </header>
+    <hr>
+
+    <main class="wrapper archive_main">
+        <section>
+            <div class="general_header">Archive</div>
+            <p style="max-width: 750px;"> The official UC San Diego Crime Log website only displays summaries of campus police activity for the past 60 days. However, featured crime logs for the whole year can be found here. </p>
+        </section>
+
+        <section class="general_section">
+            <% grpd_data.forEach(group => { %>
+              <div class="general_header" style="padding-top: 15px;"><%= group.year %></div>
+              <ul class="archive_list" style="padding-left: 15px; font-size: 16px;">
+                <% group.months.forEach(month => { %>
+                  <li><a href="/archive/<%= group.year %>/<%= month %>"><%= month %> </a></li>
+                <% }); %>
+              </ul>
+            <% }); %>
+        </section>
+    </main>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+  </body>
+</html>

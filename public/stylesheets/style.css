@@ -1,0 +1,329 @@
+:root {
+  --space-zero:     clamp(0rem,-0.02rem + 0.11vw,0.0625rem);
+  --space-2xs:      clamp(0.25rem,0.16rem + 0.43vw,0.5rem);
+  --space-xs:       clamp(0.75rem,0.71rem + 0.22vw,0.875rem);
+  --space-s:        clamp(1rem,0.96rem + 0.22vw,1.125rem);
+  --space-m:        clamp(1.5rem,1.43rem + 0.33vw,1.6875rem);
+  --space-l:        clamp(2rem,1.91rem + 0.43vw,2.25rem);
+  --space-xl:       clamp(3rem,2.87rem + 0.65vw,3.375rem);
+  --space-2xl:      clamp(4rem,3.83rem + 0.87vw,4.5rem);
+  --space-3xl:      clamp(5rem,4.78rem + 1.09vw,5.625rem);
+  --space-4xl:      clamp(6rem,5.74rem + 1.30vw,6.75rem);
+
+  --space-xs-s:     clamp(0.75rem,0.62rem + 0.65vw,1.125rem);
+  --space-s-m:      clamp(1rem,0.76rem + 1.20vw,1.6875rem);
+  --space-s-l:      clamp(1rem,0.57rem + 2.17vw,2.25rem);
+  --space-m-l:      clamp(1.5rem,1.24rem + 1.30vw,2.25rem);
+  --space-l-xl:     clamp(2rem,1.52rem + 2.39vw,3.375rem);
+  --space-xl-2xl:   clamp(3rem,2.48rem + 2.61vw,4.5rem);
+  --space-2xl-3xl:  clamp(4rem,3.43rem + 2.83vw,5.625rem);
+  --space-3xl-4xl:  clamp(5rem,4.39rem + 3.04vw,6.75rem);
+
+  --size-base:clamp(1rem,0.96rem + 0.22vw,1.125rem);
+  --size-step-0:clamp(0.8125rem,0.79rem + 0.11vw,0.875rem);
+  --size-step-1:clamp(1.1875rem,1.12rem + 0.33vw,1.375rem);
+  --size-step-2:clamp(1.4375rem,1.33rem + 0.54vw,1.75rem);
+  --size-step-3:clamp(1.6875rem,1.51rem + 0.87vw,2.1875rem);
+  --size-step-4:clamp(2.0625rem,1.85rem + 1.09vw,2.6875rem);
+
+  --font-base: Helvetica, Arial, sans-serif;
+  --gutter:var(--space-s-m);
+  --wrapper-width:clamp(16rem,93vw,85rem);
+
+  --main-color: #FFCD00;
+  --link-color: #5da0f2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.wrapper{
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  position: relative;
+  width: var(--wrapper-width);
+}
+
+.my-s-m{
+  margin-bottom: clamp(1rem,.76rem + 1.2vw,1.6875rem);
+  margin-top: clamp(1rem,.76rem + 1.2vw,1.6875rem);
+}
+
+.sidebar {
+  --sidebar-target-width: max-content;
+  --gutter: var(--space-m);  
+}
+
+.sidebar{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter,var(--space-s-l));
+}
+
+.sidebar > :first-child {
+  flex-basis: var(--sidebar-target-width,20rem);
+  flex-grow: 1;
+}
+
+.sidebar > :last-child{
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: var(--sidebar-content-min-width,50%);
+}
+
+.crime-collection .grid{
+  --grid-min-item-size: 12rem;
+  /* --grid-min-item-size:18.75rem; */
+  --gutter: var(--space-l-xl) var(--gutter);
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat( auto-fill, minmax( var(--grid-min-item-size , 14rem), 1fr ) );
+
+  /* 
+    maybe once it gets down to smallers sizes, make min max 16px 
+  */
+
+  /* grid-template-columns: repeat( auto-fill, minmax( var(--grid-min-item-size , 16rem), 1fr ) ); */
+
+}
+
+.grid{
+  gap: var(--gutter, var(--space-s-l));
+  /* row-gap: 15px; */
+}
+
+ol[role="list"], ul[role="list"] {
+  list-style: none;
+}
+
+
+/* .center {
+  max-width: 1000px;
+  margin: 0 auto;
+} */
+
+.header{
+  /* padding: var(--space-lg) 0px; */
+  padding: var(--space-l) 0px;
+}
+
+body{
+  background-color: #111111;
+  color: white;
+  font-family: var(--font-base);
+  font-size: 16px
+}
+
+
+
+h1{
+  color: var(--main-color);
+  margin-right: var(--space-s);
+}
+
+
+.grid li{
+  border-radius: 5px;
+  background-color: #201F1F;
+
+  padding-left: var(--space-s);
+  padding-right: var(--space-m);
+  padding-top: var(--space-m);
+  padding-bottom: var(--space-l);
+
+  /* margin-bottom: 2em;  */
+
+  align-self: flex-start;
+}
+
+.crime_log{
+  border-radius: 5px;
+  max-width: 285px;
+  background-color: #201F1F;
+
+  padding-left: var(--space-s);
+  padding-right: var(--space-m);
+  padding-top: var(--space-m);
+  padding-bottom: var(--space-l);
+
+  /* margin-bottom: 2em;  */
+
+  align-self: flex-start;
+
+}
+
+.summary > div{
+  font-weight: bold;
+  color: var(--main-color)
+}
+
+.disposition > div{
+  font-weight: bold;
+}
+
+.summary {
+  margin: var(--space-s) 0px;
+}
+
+.incident, .location, .date{
+  /* margin-bottom: var(--space-xxs); */
+  /* margin-bottom: var(--space-2xs); */
+  margin-bottom: var(--space-zero);
+}
+
+.summary > div, .disposition > div{
+  padding-bottom: 3px;
+}
+
+.incident{
+  font-weight: bold;
+  margin-bottom: var(--space-2xs);
+  /* color: var(--main-color) */
+}
+
+/* Modifying the h2 date that precedes the grid for that specific date */
+
+.crime_day_header{
+  padding-top: var(--space-s);
+  padding-bottom: var(--space-xs);
+  /* padding-left: var(--space-s); */
+  color: var(--main-color);
+}
+
+/* Modifying the site header */
+
+.site-header {
+  margin-top: var(--space-m);
+  margin-bottom: var(--space-m);
+}
+
+.site-header p{
+  margin-top: var(--space-s);
+}
+
+.header_nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+nav{
+  width: 100%;
+  max-width: 500px;
+  border-radius: 5px;
+  background-color: var(--main-color);
+  padding: var(--space-xs) var(--space-s);
+  padding-bottom: var(--space-s);
+  
+}
+
+nav ul{
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a{
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--main-color);
+  color: #111111;
+  text-transform: lowercase;
+  text-decoration: none;
+  /* text-decoration-color: var(--link-color); */
+  /* text-decoration-thickness: 2px;
+  text-underline-offset: .2ex; */
+}
+
+
+nav a:hover {
+  color: white;
+}
+
+/* Modifying a tags */
+
+a[role=link]{
+  text-decoration: none;
+  color: var(--link-color)
+}
+
+a[role=link]:hover{
+  color: var(--main-color);
+}
+
+a[role=logo]{
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+/* ------------------------------------- about section css  -------------------------------------*/
+
+.general_header {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #FFCD00;
+  font-weight: 800;
+  /* border-bottom: 2px var(--main-color) solid; */
+}
+
+section h1 {
+  font-size: 2rem;
+}
+
+.general_section{
+  font-size: 16px;
+  line-height: 1.5;
+  /* padding-left: 25px; */
+  /* padding-left: var(--space-l); */
+}
+.general_section a{
+  color: var(--link-color);
+}
+
+main > section > h1{
+  padding-top: var(--space-xs);
+  padding-bottom: var(--space-xs);
+
+}
+
+.about_main > section, .leaderboard_main > section, .archive_main > section, .contact_main > section{
+  margin-top: 15px;
+}
+
+/* ------------------------------------- archive section css  -------------------------------------*/
+
+.archive_list > li > a:hover{
+  border: 1px var(--main-color) dotted;
+
+}
+
+@media screen and (max-width: 1061px) {
+  nav{
+    margin-top: var(--space-xs);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  h1{
+    margin-bottom: var(--space-xs);
+  }
+
+  .header_nav ul{
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  nav > ul > li{
+    border-bottom: 2px solid #111111;
+  }
+}
+
